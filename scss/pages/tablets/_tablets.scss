@@ -1,0 +1,128 @@
+/* TABLETS */
+
+.tablets {
+	padding: 100px 0 50px;
+
+	&-inner {
+		@include horizontal;
+	}
+
+	& .section_title::before {
+		width: 65px;
+		background: url(../img/logo_image_small.png) no-repeat;
+	}
+
+	&-information {
+		font-size: rem(23);
+		color: $color_main;
+		text-align: center;
+	}
+
+	&-list {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 30px;
+
+		@include respond_to(to_desktop) {
+			display: block;
+		}
+
+		&-wrapper {
+			margin-top: 90px;
+			text-align: center;
+		}
+	}
+
+	&-item {
+		position: relative;
+		width: percentage(370);
+		border: 5px solid $red01;
+		border-radius: 15px;
+
+		&:last-of-type {
+			border-color:  $green03;
+		}
+
+		@include respond_to(to_desktop) {
+			width: 100%;
+
+			& + & {
+				margin-top: 90px;
+			}
+		}
+	}
+
+	&-image {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		-webkit-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+
+		&-wrapper {
+			width: 100px;
+			height: 50px;
+			background: $white01;
+			border-bottom: 5px solid $red01;
+			border-left: 5px solid $red01;
+			border-right: 5px solid $red01;
+			border-radius: 0 0 100px 100px;
+			margin: -5px auto 50px;
+			display: flex;
+			position: relative;
+
+			&.accept {
+				border-color: $green03;
+			}
+		}
+	}
+
+	&-content {
+		margin-top: -30px;
+		padding: 0 percentage(30, 370) 30px;
+	}
+
+	&-list_title {
+		font-size: rem(24);
+		color: $black01;
+		margin-bottom: 10px;
+	}
+
+	&-description {
+		font-size: $main_size;
+		color: $color_main;
+		line-height: 1.5;
+	}
+
+	&-text {
+		position: relative;
+		border-left: 5px solid $red01;
+		border-right: 5px solid $green03;
+		display: inline-block;
+		border-radius: 20px;
+		padding: 30px 25px;
+		font-size: rem(27);
+		background: #fff;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: -1;
+			margin: -5px;
+			border-radius: inherit;
+			background-image: linear-gradient(to right, $red01 0, $green03 100%);
+			background-image: -moz-linear-gradient(left, $red01 0, $green03 100%);
+			background-image: -webkit-linear-gradient(left, $red01 0, $green03 100%);
+		}
+
+		&-decoration {
+			color: $orange01;
+		}
+	}
+}
+

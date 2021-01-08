@@ -1,0 +1,21 @@
+// UTILS
+@import "utils/_var.scss";
+@import "utils/_mixins.scss";
+@import "utils/_icons-list.scss";
+@import "utils/_fonts.scss";
+
+// GENERAL
+@import "general/_reset.scss";
+@import "general/_main.scss";
+
+// COMPONENTS
+@import "components/_header.scss";
+@import "components/_footer.scss";
+
+// PAGES
+@import "pages/main/_main.scss";
+@import "pages/danger/danger.scss";
+@import "pages/inefficient/inefficient.scss";
+@import "pages/tablets/tablets.scss";
+@import "pages/section_use/section_use.scss";
+

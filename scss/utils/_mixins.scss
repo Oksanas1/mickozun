@@ -1,0 +1,116 @@
+// HOVER
+@mixin hover($color: $black02) {
+	position: relative;
+
+	&:hover::before {
+		content: "";
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		border-bottom: 1px solid $color;
+	}
+}
+
+//UNDERLINE
+@mixin underline ($color) {
+	text-decoration: underline;
+	text-decoration-color: $color;
+	-moz-text-decoration-color: $color;
+	-webkit-text-decoration-color: $color;
+}
+
+// CLEAR FIX
+@mixin clearfix {
+	&::after {
+		content: "";
+		display: table;
+		clear: both;
+		width: 100%;
+	}
+}
+
+// HORIZONTAL STRETCHING OF BLOCK
+@mixin justify {
+	text-align: justify;
+
+	&::after {
+		content: "";
+		display: inline-block;
+		width: 100%;
+	}
+}
+
+// PIXEL TO REM
+@function rem($value) {
+	@return ($value / $size + rem);
+}
+
+// PERCENTAGE
+@function percentage($current, $parent: $site_width) {
+	@return ($current / $parent * 100%);
+}
+
+// HORIZONTAL CENTER BOX
+@mixin horizontal($max-width: $site_width) {
+	width: 100%;
+	max-width: $max-width + px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+// DISPLAY INLINE-BLOCK
+@mixin inline-block {
+	display: inline-block;
+	vertical-align: top;
+}
+
+// ABSOLUTE TOP
+@mixin absolute($top: 0, $left: 0, $right: 0, $position: absolute) {
+	position: $position;
+	top: $top;
+	left: $left;
+	right: $right;
+}
+
+// RESPONSE BOX
+@mixin response($current, $parent: $site_width) {
+	&::before {
+		content: "";
+		display: block;
+		padding-bottom: $current / $parent * 100%;
+	}
+}
+
+// RESPONSE
+$mobile: 320;
+$tablet: 768;
+$desktop: 1024;
+$desktop_large: 1200;
+
+@mixin respond_to($device) {
+	@if($device==mobile) {
+		@media(min-width: $mobile + px) and (max-width: $tablet - 1 + px) {
+			@content;
+		}
+	}
+
+	@else if($device==tablet) {
+		@media(min-width: $tablet + px) and (max-width: $desktop - 1 + px) {
+			@content;
+		}
+	}
+
+	@else if($device==desktop) {
+		@media(min-width: $desktop) and (max-width: $desktop_large -1 + px) {
+			@content;
+		}
+	}
+
+	@else if($device==to_desktop) {
+		@media(min-width: $mobile + px) and (max-width: $desktop - 1 + px) {
+			@content;
+		}
+	}
+}
+

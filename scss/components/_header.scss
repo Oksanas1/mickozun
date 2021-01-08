@@ -1,0 +1,90 @@
+/* HEADER */
+
+.header {
+	@include horizontal;
+	@include absolute(10px);
+
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	z-index: 5;
+
+	@include respond_to(to_desktop) {
+		display: block;
+		position: static;
+		background: $blue01;
+		padding: 20px 20px 0;
+	}
+
+	&-list {
+		display: flex;
+		width: percentage(650);	
+		margin-right: percentage(20);
+
+		@include respond_to(to_desktop) {
+			width: 100%;
+		}
+	}
+
+	&-item {
+		display: flex;
+		align-items: center;
+
+		&.medal {
+			@include icon(medal);
+		}
+
+		&.recommend {
+			@include icon(location);
+		}
+
+		&.user {
+			@include icon(user);
+		}
+
+		&::before {
+			font-size: rem(36);
+			color: $grey02;
+			margin-right: 10px;
+		}
+
+		& + & {
+
+		margin-left: percentage(35, 670);
+		}
+
+		&-text {
+			font-size: rem(16);
+			color: $black04;
+			font-style: italic;
+			line-height: 1.2;
+		}
+	}
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	margin-right: percentage(90);
+
+	@include respond_to(to_desktop) {
+		justify-content: center;
+		margin: 0 0 20px;
+	}
+
+	&-image {
+
+		&-wrapper {
+			width: 90px;
+			overflow: hidden;
+			margin-right: 5px;
+		}
+	}
+
+	&-link {
+		font-size: rem(22);
+		font-weight: $black;
+		color: $black02;
+	}
+}
+

@@ -1,0 +1,159 @@
+@font-face {
+  font-family: "icons";
+  src: url('../fonts/icons/icons.eot');
+  src: url('../fonts/icons/icons.eot?#iefix') format('eot'),
+  url('../fonts/icons/icons.woff2') format('woff2'),
+  url('../fonts/icons/icons.woff') format('woff'),
+  url('../fonts/icons/icons.ttf') format('truetype'),
+  url('../fonts/icons/icons.svg#icons') format('svg');
+}
+
+@mixin icon-styles {
+  font-family: "icons";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  speak: none;
+  text-decoration: none;
+  text-transform: none;
+  font-size: 32px;
+}
+
+%icon {
+  @include icon-styles;
+}
+
+@function icon-char($filename) {
+  $char: "";
+
+  @if $filename == arrow {
+  $char: "\E001";
+}
+  @if $filename == calendar {
+  $char: "\E002";
+}
+  @if $filename == caps {
+  $char: "\E003";
+}
+  @if $filename == circle {
+  $char: "\E004";
+}
+  @if $filename == cross {
+  $char: "\E005";
+}
+  @if $filename == delivery-arrow {
+  $char: "\E006";
+}
+  @if $filename == delivery {
+  $char: "\E007";
+}
+  @if $filename == diagram {
+  $char: "\E008";
+}
+  @if $filename == jar {
+  $char: "\E009";
+}
+  @if $filename == location {
+  $char: "\E00A";
+}
+  @if $filename == medal {
+  $char: "\E00B";
+}
+  @if $filename == paste {
+  $char: "\E00C";
+}
+  @if $filename == phone {
+  $char: "\E00D";
+}
+  @if $filename == pill {
+  $char: "\E00E";
+}
+  @if $filename == ruble {
+  $char: "\E00F";
+}
+  @if $filename == shield {
+  $char: "\E010";
+}
+  @if $filename == star {
+  $char: "\E011";
+}
+  @if $filename == user {
+  $char: "\E012";
+}
+  @if $filename == user_form {
+  $char: "\E013";
+}
+
+@return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true) {
+&:#{$insert} {
+  @if $extend {
+    @extend %icon;
+  } @else {
+    @include icon-styles;
+  }
+  content: icon-char($filename);
+}
+}
+
+.icon-arrow {
+  @include icon(arrow);
+}
+.icon-calendar {
+  @include icon(calendar);
+}
+.icon-caps {
+  @include icon(caps);
+}
+.icon-circle {
+  @include icon(circle);
+}
+.icon-cross {
+  @include icon(cross);
+}
+.icon-delivery-arrow {
+  @include icon(delivery-arrow);
+}
+.icon-delivery {
+  @include icon(delivery);
+}
+.icon-diagram {
+  @include icon(diagram);
+}
+.icon-jar {
+  @include icon(jar);
+}
+.icon-location {
+  @include icon(location);
+}
+.icon-medal {
+  @include icon(medal);
+}
+.icon-paste {
+  @include icon(paste);
+}
+.icon-phone {
+  @include icon(phone);
+}
+.icon-pill {
+  @include icon(pill);
+}
+.icon-ruble {
+  @include icon(ruble);
+}
+.icon-shield {
+  @include icon(shield);
+}
+.icon-star {
+  @include icon(star);
+}
+.icon-user {
+  @include icon(user);
+}
+.icon-user_form {
+  @include icon(user_form);
+}

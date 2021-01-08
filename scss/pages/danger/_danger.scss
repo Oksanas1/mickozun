@@ -1,0 +1,227 @@
+/* DANGER */
+
+.danger {
+	padding: 90px 0 30px;
+
+	&-inner {
+		@include horizontal;
+
+		@include respond_to(to_desktop) {
+			padding: 0 20px 30px;
+		}
+	}
+
+	&-title {
+		position: relative;
+		font-size: rem(48);
+		color: $black02;
+		margin-bottom: 25px;
+		text-align: center;
+		line-height: 1.5;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translate(-50%, -100%);
+			width: 95px;
+			height: 60px;
+			background: url(../img/logo_image.png) no-repeat;
+		}
+
+		&-decoration {
+			color: $orange01;
+		}
+	}
+
+	&-subtitle {
+		font-size: rem(24);
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+	&-list {
+		font-size: 0;
+		margin-bottom: 50px;
+
+		@include respond_to(to_desktop) {
+			display: block;
+		}
+	}
+
+	&-item {
+		display: inline-block;
+		width: percentage(330);
+		min-width: 330px;
+		vertical-align: top;
+
+		& + & {
+			margin-left: percentage(70);
+
+			@include respond_to(to_desktop) {
+				margin: 50px 0 0;
+			}
+		}
+
+		@include respond_to(to_desktop) {
+			width: 100%;
+		}
+	}
+
+	&-header {
+		display: flex;
+		align-items: center;
+		margin-bottom: 20px;
+
+		@include respond_to(to_desktop) {
+			width: 100%;
+			margin: 0 auto;
+			display: block;
+		}
+	}
+
+	&-item_style {
+		position: relative;
+		width: percentage(190, 330);
+		padding: 14px 20px 15px 14px;
+
+		&::before, 
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			border-radius: 50%;
+			border: 10px solid;
+			border-color: transparent transparent transparent $orange05;
+			margin: -10px 0 0 -10px;
+		}
+
+		&::before {
+			transform: rotate(35deg) scale(1.1);
+			-webkit-transform: rotate(35deg) scale(1.1);
+			-ms-transform: rotate(35deg) scale(1.1);
+		}
+
+		&::after {
+			transform: rotate(80deg) scale(1.1);
+			-webkit-transform: rotate(80deg) scale(1.1);
+			-ms-transform: rotate(80deg) scale(1.1);
+		}
+
+		.danger-item:first-of-type &::before,
+		.danger-item:first-of-type &::after {
+			border-color: transparent transparent transparent $orange04;
+		}
+
+		.danger-item:last-of-type &::before,
+		.danger-item:last-of-type &::after {
+			border-color: transparent transparent transparent $red01;
+		}
+
+		@include respond_to(to_desktop) {
+			width: 190px;
+			margin: 0 auto 20px;
+		}
+	}
+
+	&-number {
+		position: absolute;
+		top: -5px;
+		right: 20px;
+		background: $orange05;
+		width: 50px;
+		line-height: 50px;
+		border-radius: 50%;
+		text-align: center;
+		color: $white01;
+		font-size: rem(30);
+
+		.danger-item:first-of-type & {
+			background: $orange04;
+		}
+
+		.danger-item:last-of-type & {
+			background: $red01;
+		}
+	}
+
+	&-image {
+
+		&-wrapper {
+			width: 170px;
+			border-radius: 50%;
+			overflow: hidden;
+			margin: -10px 0 0 -10px;
+		}
+	}
+
+	&-item_title {
+		font-size: rem(22);
+
+		@include respond_to(to_desktop) {
+			width: 100%;
+			text-align: center;
+		}
+	}
+
+	&-content {
+		padding: 15px 0;
+		position: relative;
+		font-size: $main_size;
+		color: $color_main;
+		line-height: 1.6;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: percentage(50, 330);
+			border-top: 3px solid $grey04;
+		}
+	}
+
+	&-bottom {
+		border: 3px solid $orange03;
+		border-radius: 13px;
+		padding: 35px percentage(90);
+		position: relative;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: -5px;
+			left: 50%;
+			transform: translate(-50%, 0);
+			-webkit-transform: translate(-50%, 0);
+			-ms-transform: translate(-50%, 0);
+			width: percentage(170);
+			border-top: 10px solid $white01;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			-webkit-transform: translate(-50%, -50%);
+			-ms-transform: translate(-50%, -50%);
+			width: percentage(65);
+			height: 40px;
+			background: url(../img/diagram.png) no-repeat;
+		}
+	}
+
+	&-description {
+		font-size: rem(22);
+		color: $color_main;
+		line-height: 1.5;
+		text-align: center;
+	}
+}
+
